@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$gray: #818589;
+$black: #000000;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: geometricPrecision;
+  max-width: 1536px;
+  margin: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.select_wrapper {
+  position: relative;
+  width: 100%;
+  &:after {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    content: "";
+    display: block;
+    background: url("/assets/icons/select.svg");
+    width: 24px;
+    height: 36px;
+    pointer-events: none;
+  }
+  select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &::-ms-expand {
+      display: none;
+    }
+    option {
+      background-color: transparent;
+    }
+  }
+}
+
+select:required:invalid {
+  color: $gray;
+  opacity: 1; /* Firefox */
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: $black;
+}
+
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: $gray;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $gray;
+}
+input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: $gray;
+}
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: $gray;
+}
